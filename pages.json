@@ -4,7 +4,7 @@
             "path" : "pages/home/home",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationStyle": "custom",
                 "enablePullDownRefresh": false
             }
             
@@ -13,8 +13,10 @@
             "path" : "pages/cate/cate",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
+                "navigationBarTitleText": "分类",
+                "enablePullDownRefresh": false,
+                "navigationBarBackgroundColor": "#C00000",
+                "navigationBarTextStyle": "white"
             }
             
         },
@@ -22,8 +24,10 @@
             "path" : "pages/cart/cart",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
+                "navigationBarTitleText": "购物车",
+                "enablePullDownRefresh": false,
+                "navigationBarBackgroundColor": "#C00000",
+                "navigationBarTextStyle": "white"
             }
             
         },
@@ -31,8 +35,10 @@
             "path" : "pages/my/my",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
+                "navigationBarTitleText": "关于我们",
+                "enablePullDownRefresh": false,
+                "navigationBarBackgroundColor": "#C00000",
+                "navigationBarTextStyle": "white"
             }
             
         }
