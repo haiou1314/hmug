@@ -1,9 +1,7 @@
 <template>
   <view>
     <view class="topSearch">
-      <view class="search_btn">
-        搜索
-      </view>
+      <view class="search_btn"> 搜索 </view>
     </view>
 
     <template>
@@ -37,13 +35,15 @@
         <view class="floor-img-box">
           <!-- 左侧大图片的盒子 -->
           <view class="left-img-box">
-            <image class="left-img" :src="item.product_list[0].image_src"
-              :style="{width: item.product_list[0].image_width + 'rpx'}"></image>
+            <image @click="gotoGoodsList(item.product_list[0].navigator_url)" class="left-img"
+              :src="item.product_list[0].image_src" :style="{ width: item.product_list[0].image_width + 'rpx' }">
+            </image>
           </view>
           <!-- 右侧 4 个小图片的盒子 -->
           <view class="right-img-box">
             <view class="right-img-item" v-for="(item2, i2) in item.product_list" :key="i2" v-if="i2 !== 0">
-              <image :src="item2.image_src" mode="widthFix" :style="{width: item2.image_width + 'rpx'}"></image>
+              <image @click="gotoGoodsList(item2.navigator_url)" :src="item2.image_src" mode="widthFix"
+                :style="{ width: item2.image_width + 'rpx' }"></image>
             </view>
           </view>
         </view>
@@ -63,8 +63,8 @@
       return {
         banners: [],
         navList: [],
-        floorList: []
-      };
+        floorList: [],
+      }
     },
     methods: {
       // 获取轮播图
@@ -85,23 +85,30 @@
       // 点击去详情页
       goDetail(id) {
         uni.navigateTo({
-          url: '/subpkg/goods_detail/goods_detail?id=' + id
+          url: '/subpkg/goods_detail/goods_detail?id=' + id,
         })
       },
       // 跳转nav
       gotonav(item) {
         if (item.name == '分类') {
           uni.switchTab({
-            url: '/pages/cate/cate'
+            url: '/pages/cate/cate',
           })
         }
-      }
+      },
+      gotoGoodsList(url) {
+        console.log(url)
+        console.log();
+        uni.navigateTo({
+          url: '/subpkg/goods_list/goods_list?' + (url.split('?'))[1],
+        })
+      },
     },
     onLoad() {
       this.getbanners()
       this.getnavs()
       this.getfloors()
-    }
+    },
   }
 </script>
 

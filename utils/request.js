@@ -7,6 +7,7 @@ fly.config.timeout = 3000
 //添加请求拦截器
 fly.interceptors.request.use((request) => {
   //给所有请求添加自定义header
+  toast.loding()
   request.headers['X-Tag'] = 'flyio'
   //终止请求
   //var err=new Error("xxx")
@@ -21,12 +22,13 @@ fly.interceptors.request.use((request) => {
 fly.interceptors.response.use(
   (response) => {
     //只将请求结果的data字段返回
+    uni.hideToast()
     return response.data.message
   },
   (err) => {
     //发生网络错误后会走到这里
-    toast.err('请求失败')
-    return Promise.resolve("ssss")
+    toast.err('网络错误')
+    return Promise.resolve("请求失败")
   }
 )
 

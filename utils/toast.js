@@ -22,4 +22,12 @@ toast.success = function(title, duration = 3000) {
     duration
   })
 }
+// loding加载
+toast.loding = function(title, duration = 3000) {
+  uni.showToast({
+    title,
+    icon: 'loading',
+    duration
+  })
+}
 export default toast
